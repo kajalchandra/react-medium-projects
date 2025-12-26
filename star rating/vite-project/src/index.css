@@ -1,0 +1,57 @@
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+.app{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+.container{
+  text-align:  center;
+  
+}
+.star-container{
+  border: 1px solid;
+  padding: 30px;
+}
+.star{
+  /* padding: 30px; */
+  display: inline-block;
+  width: 100px;
+  height: 100px;
+  user-select: none;
+  
+  font-size: 70px;
+text-align: center;
+  color: slategrey;
+  line-height: 100px;
+
+}
+.rating-div{
+  font-size: 30px;
+}
+.selected-star{
+    display: inline-block;
+  width: 100px;
+  height: 100px;
+  user-select: none;
+  
+  font-size: 70px;
+  text-align: center;
+  color: rgb(219, 219, 22);
+  line-height: 100px;
+}
+.btn-div{
+ 
+  width: 80px;
+  margin: 30px auto 20px;
+  padding: 10px;
+  
+}
+.btn{
+  padding: 10px;
+  font-size: 18px;
+}
