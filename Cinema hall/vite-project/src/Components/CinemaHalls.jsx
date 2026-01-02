@@ -11,6 +11,7 @@ const CinemaHall = ()=>{
     // console.log("seat",seat)
     //const [selected, setSelected] = useState([])
    
+
     const selectedSeat = (e,rowIdx,colIdx)=>{
        
         //console.log(seat[rowIdx][colIdx])
@@ -29,6 +30,8 @@ const CinemaHall = ()=>{
         const bookedSeat = seat.map((seatRow)=> (seatRow.map((seat)=>(seat.status==="selected"? {...seat,status:"booked"}:{...seat}))))
         setSeat(bookedSeat)
     }
+    
+
     const handleClearSeats = ()=>{
         const clearSeat = seat.map(((seatRow)=> (seatRow.map((seat)=>seat.status ==="selected"?{...seat,status:"available"}:{...seat}))))
         setSeat(clearSeat)

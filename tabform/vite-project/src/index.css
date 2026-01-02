@@ -1,0 +1,57 @@
+*{
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+.tab-btns{
+  display: flex;
+ 
+  padding: 10px;
+  background-color: rgb(221, 238, 232);
+}
+.tab-container{
+  display: flex;
+  flex-direction: column;
+}
+.btns{
+  
+  padding: 8px;
+  margin-inline: 5px;
+  background-color:rgba(0, 0, 0, 0.663) ;
+  border: none;
+  outline: none;
+  border-radius: 4px;
+  user-select: none;
+  color: white;
+}
+.active-Component{
+  
+  height: 400px;
+  text-align: left;
+   background-color: rgb(155, 83, 222);
+}
+.input-div{
+  margin-left: 15px;
+  margin-block: 30px;
+ 
+}
+.label{
+  color: white;
+  font-size: 22px;
+}
+.input{
+  padding: 10px;
+  margin-left: 10px;
+}
+.error{
+  
+  margin-left: 30px;
+  text-align: left;
+  color: rgb(251, 255, 0);
+}
+.btn-container{
+   background-color: rgb(221, 238, 232);
+  padding: 10px;
+  text-align: left;
+
+}
