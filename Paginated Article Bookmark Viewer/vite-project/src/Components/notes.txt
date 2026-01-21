@@ -1,0 +1,70 @@
+i was using array.fill and passed null inside it , but because of null i was not able to filter or delete my array items
+because at every index , null was present i was not able to do anything with that data
+
+so i that to create a dummy object inside fill ({id:date.now} , text:"This is article")
+it also causes problem because , you passed the function, not its value → all ids same , same object reference for all items
+
+.. so i was adviced to use Array.from , why to use it?
+because Array.from creates a new one each time. 
+
+for objects → use Array.from
+
+fill is only safe for primitives (number, string, null)
+
+// problem that i faced in toggling part .
+i used a global isSaved state , to jab value false ya true hoti thi , to wo sab article k liye apply ho jaati thi ,
+jab ki har article ka independent boolean value hona chahiye tha , so we corrected it using an array when we saved the id that we click
+or toggle , we saved a list of id's that we have clicked
+
+
+// stale state of toggling
+const handleShowBookmarked = ()=>{
+    setShowBookMarked((prev)=> !prev)
+    setCurrentPage(1)
+     
+   }
+
+   Here’s the problem:
+
+React batches state updates.
+
+If some other code updates showBookMarked before this handler runs, !showBookmarked might use a stale value.
+
+That means your toggle could flip in the wrong direction.
+Imagine:
+
+Current showBookmarked = false
+
+User clicks checkbox twice very fast
+
+Your code runs setShowBookMarked(!showBookmarked) twice
+
+Step by step:
+
+Click	showBookmarked (current)	!showBookmarked 	Result
+1	        false	                    true	    sets true
+2	still false                         true        sets true again
+(React hasn't updated yet!)
+
+
+
+How using prev => !prev fixes it
+setShowBookMarked(prev => !prev)
+
+
+React automatically passes the latest state as prev
+
+Even if clicks happen quickly or other updates happen, the toggle always works correctly
+
+Step by step with prev:
+
+Click	prev	!prev	Result
+1	    false	true	sets true
+2	    true	false	sets false
+
+/// important rule
+🔹 Key Rule in React
+
+Don’t store in state something that can be calculated from other state/props.
+
+articles and saved → visibleArticles → totalItems

@@ -1,0 +1,47 @@
+.app{
+  font-family: sans-serif;
+}
+
+.container{
+  width: 900px;
+  max-width: 700px;
+  border: 1px solid #fdfdfd;
+  box-shadow: -4px 18px 16px 13px #f7f7f7;
+  margin: auto;
+  padding: 15px;
+  
+
+}
+.heading{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.card{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  justify-content: space-between;
+  border: 1px solid #cccccc;
+  box-shadow: -1px 0px 4px 2px #f7f7f7;
+  padding: 15px;
+  margin-block: 15px;
+  border-radius: 8px;
+  
+}
+.star{
+  font-size: 30px;
+  color: #cccccc ;
+  cursor: pointer;
+  
+}
+.btns{
+  display: flex;
+  justify-content: space-around;
+  margin-left: 0;
+}
+.active{
+  color: gold;
+}
+
