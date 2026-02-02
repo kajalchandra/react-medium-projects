@@ -1,0 +1,37 @@
+.app{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 600px;
+
+}
+.drawing-area{
+    border: 1px solid black;
+    width: 400px;
+    height: 400px;
+    position: relative;
+}
+.buttons{
+    border: 1px solid black;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.undo-btn{
+    padding: 9px;
+    margin-block: 5px;
+    margin-right: 10px;
+}
+.redo-btn{
+    padding: 9px;
+    margin-block: 5px;
+    margin-left: 10px;
+}
+.circle{
+    /* position: absolute; */
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background-color: tomato;
+    user-select: none;
+}

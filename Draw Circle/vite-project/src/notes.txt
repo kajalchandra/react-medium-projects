@@ -1,0 +1,39 @@
+the problem that i got with using "fixed"
+Where the bug is
+
+Rendering circles:
+
+style={{ position: "fixed", left: pos.x, top: pos.y }}
+
+Why this is a bug ❌
+Problem 1: fixed is relative to viewport
+
+Coordinates are taken from e.clientX / e.clientY
+
+Those are screen coordinates
+
+Circles are not tied to the drawing area
+
+Symptoms:
+
+Scroll the page → circles drift
+
+Resize window → positions break
+
+Click inside box → circle may appear outside
+
+
+
+The key rule 🧠 (remember this forever)
+
+getBoundingClientRect() belongs to a DOM element, not React, not JavaScript globally.
+
+You must call it on the element itself.
+
+How do we get the element in React?
+
+We use a ref.
+
+Think of a ref as:
+
+“Give me direct access to this HTML element.”
