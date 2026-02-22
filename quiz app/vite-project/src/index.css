@@ -1,0 +1,20 @@
+.app{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+
+}
+.quiz-container{
+  border: 1px solid black;
+  width: 700px;
+  max-width: 500px;
+  padding: 20px;
+}
+.btn{
+  padding: 7px;
+  color: white;
+  font-size: 18px;
+  background-color: rgb(59, 59, 238);
+  border: none;
+}

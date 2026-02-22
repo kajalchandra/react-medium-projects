@@ -1,0 +1,121 @@
+import { useState } from "react"
+
+const QuizApp = ()=>{
+    const [startIndex,setStartIndex] = useState(0)
+    const [selected,setSelected] = useState("")
+    const [score,setScore] =  useState(0)
+    const [isError,setIsError] = useState(false)
+    const Quiz = [
+        {
+            id: 1,
+            question : "What is the capital of Haryana?",
+            options : [
+                {answer: "Yamunanagar",isTrue: false},
+                {answer:"Panipat" , isTrue:false},
+                {answer:"Gurgaon", isTrue:false},
+                {answer:"Chandigarh",isTrue:true}
+            ]
+        },
+        {
+            id : 2,
+            question : "What is the capital of Punjab?",
+            options : [
+                {answer: "Patiala",isTrue:false},
+                {answer: "Ludhiana",isTrue:false},
+                {answer:  "Amritsar",isTrue:false},
+                {answer: "Chandigarh",isTrue:true}
+            ]
+        },
+        {   
+            id : 3,
+            question : "What is the capital of India?",
+            options : [
+                {answer:"Delhi",isTrue:true},
+                {answer:"Mumbai",isTrue:false},
+                {answer:"Kolkata",isTrue:false},
+                {answer:"Chennai",isTrue:false}
+            ]
+        },
+
+        {   
+            id:4,
+            question: "What is the capital of Uttarakhand?",
+            options : [
+                {answer: "Roorkee",isTrue:false},
+                {answer: "Haridwar",isTrue: false},
+                {answer: "Dehradun",isTrue:true},
+                {answer: "Nanital",isTrue:false}
+            ]
+        },
+        {
+            id:5,
+            question : "What is the capital of Uttar Pradesh?",
+            options : [
+                {answer: "GB Nagar",isTrue: false},
+                {answer: "Lucknow", isTrue: true},
+                {answer: "Prayagraj",isTrue:false},
+                {answer: "Agra",isTrue:false}
+            ]
+        }
+    ]
+    const TotalScore = ()=>{
+        return(
+            <div>
+                <h2>Your score</h2>
+                <p>{`${score}/${Quiz.length}`}</p>
+            </div>
+        )
+    }
+    const handleSubmit = ()=>{
+        Quiz.slice(startIndex,startIndex+1).map((que)=><div>
+            {que.options.map((option)=> 
+            {if(option.answer === selected && option.isTrue === true){
+                setScore((prev)=>prev+1) // we should not set our variable inside if condition 
+                console.log("i am")
+                setSelected("")
+            }
+        })}
+        </div>)
+        if(selected===""){
+            setIsError(true)
+            console.log("not selected")
+
+        }else {
+             if(startIndex === Quiz.length-1) return <TotalScore/>
+                setStartIndex((prev)=> prev +1)
+                setIsError(false)
+                setSelected("")
+        }
+ }
+    return(
+        <div>
+            <h1>Quiz App</h1>
+            <div className="quiz-container">
+
+                {Quiz.slice(startIndex,startIndex+1).map((que,index)=>
+                <div key={que.id}>
+                    <h2>{`Question ${que.id}`}</h2>
+                    <div key={index}>
+                        <p>{que.question}</p>
+                    {que.options.map((option,index)=>
+                    <ul key={index}>
+                    <input type="radio" value={option.answer} checked={selected === option.answer} onChange={(e)=> setSelected(e.target.value)}></input><span>{option.answer}</span>
+                    
+                    </ul>)}
+                    {isError ===true ? <p>{`please select an option before submitting.`}</p>:null}
+                    <button className="btn" onClick={handleSubmit}>Submit</button>
+                    </div>
+                </div>
+               
+                 
+                   
+                )}
+
+            </div>
+
+        </div>
+    )
+}
+export default QuizApp
+
+//
